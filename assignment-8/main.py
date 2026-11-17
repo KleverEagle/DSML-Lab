@@ -21,13 +21,13 @@ kernels=["linear","poly","rbf"]
 results=[]
 
 for kernel in kernels:
-    model=make_pipeline(
+    model = make_pipeline(
         StandardScaler(),
         SVC(kernel=kernel, degree=3, C=1.0, gamma="scale")
     )
 
     model.fit(X_train,y_train)
-    y_pred=model.predict(X_test)
+    y_pred = model.predict(X_test)
 
     results.append({
         "Kernel":kernel.capitalize(),
